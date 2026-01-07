@@ -1,0 +1,25 @@
+DATA QUALITY REPORT
+===================
+
+CUSTOMERS:
+  raw_records: 26
+  duplicates_removed: 1
+  missing_emails: 5
+  cleaned_records: 25
+  loaded: 25
+
+PRODUCTS:
+  raw_records: 20
+  missing_prices: 3
+  cleaned_records: 20
+  loaded: 20
+
+SALES:
+  raw_records: 41
+  duplicates_removed: 1
+  missing_customer_ids: 3
+  missing_product_ids: 2
+  cleaned_records: 35
+  orders_loaded: 35
+  order_items_loaded: 35
+

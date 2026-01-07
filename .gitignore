@@ -1,0 +1,21 @@
+﻿# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+
+# Database/tools/binaries
+*.exe
+/mongodb-tools/
+/mongosh-*
+
+# Data / outputs
+*.log
+*.sql.gz
+*.sqlite
+*.db
+/data/
