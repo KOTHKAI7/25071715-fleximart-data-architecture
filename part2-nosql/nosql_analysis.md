@@ -1,10 +1,10 @@
 # NoSQL analysis for FlexiMart
 
-## Section A: Limitations of RDBMS (150 words)
+## Section A: Limitations of RDBMS 
 Relational databases enforce fixed schemas, which works well for uniform records but becomes painful when product attributes vary widely. For example, laptops require attributes like RAM, CPU, storage, while shoes need size, material and color. Representing this variability in normalized tables either forces many nullable columns or complex EAV (entity-attribute-value) patterns that are hard to query and slow to maintain. Frequent schema changes (adding new attributes, new product types) require ALTER TABLE operations, locking tables and risking downtime. Storing nested, variable-length data such as customer reviews (with arrays of comments, ratings, user metadata) is cumbersome; RDBMS force you to split into extra tables and joins for every nested object, making reads costly and the model less intuitive for document-like data.
 
-## Section B: NoSQL Benefits (150 words)
+## Section B: NoSQL Benefits 
 MongoDB (document database) stores data as flexible JSON-like documents, allowing each product to have its own shape without schema migrations. Attributes like "ram" or "size" can exist only where relevant. Embedded documents let you store reviews as an array inside the product document, enabling fast reads for product + reviews in a single fetch and simpler modeling of nested data. MongoDB supports indexing on nested fields and can horizontally scale via sharding as the catalog grows. Its aggregation pipeline provides powerful transformations (e.g., average rating from an embedded reviews array) without expensive joins. The result is faster iteration for product models, simpler storage for nested user-generated content, and the ability to evolve the catalog without frequent DDL.
 
-## Section C: Trade-offs (100 words)
+## Section C: Trade-offs 
 Two key disadvantages of MongoDB vs MySQL: 1) Data consistency and complex transactions: while MongoDB now supports multi-document transactions, relational DBs still offer stronger ACID guarantees for complex multi-table relational updates and mature tooling for transactional integrity. 2) Analytical queries and joins: SQL excels at complex multi-table analytics and ad-hoc reporting; document stores often require careful denormalization or additional ETL into a warehouse for analytics. Also, indexing large arrays (many reviews) can be more complex and storage cost per record can be higher.
