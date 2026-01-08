@@ -1,23 +1,13 @@
-// mongodb_operations.js
-// Run with: mongosh --file mongodb_operations.js
-// Assumes a running local MongoDB instance and a DB named 'fleximart_nosql'
-
 const dbname = 'fleximart_nosql';
 const coll = 'products';
 
-// Switch to DB
 db = db.getSiblingDB(dbname);
 
-// Operation 1: Load Data (assuming you placed JSON array in products_catalog.json)
+// Operation 1: Load Data 
 print('Operation 1: load data - use mongoimport or insertMany below if running interactively');
-// If using mongoimport from shell: 
-// mongoimport --db fleximart_nosql --collection products --file products_catalog.json --jsonArray
-
-// Alternatively, if file content is pasted here, do insertMany
-// const data = [ ... ]; db.products.insertMany(data);
 
 // Operation 2: Basic Query
-// Find all products in "Electronics" category with price less than 50000, return name, price, stock
+
 print('Operation 2: Basic Query');
 db[coll].find(
   { category: "Electronics", price: { $lt: 50000 } },
